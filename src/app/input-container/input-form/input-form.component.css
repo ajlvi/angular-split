@@ -1,0 +1,16 @@
+.form-control {
+    font-size: 24pt;
+    width: 40px;
+    text-align: center;
+    margin: 0px 4px;
+}
+
+.colon {
+    font-size: 24pt;
+    padding: 0px 2px;
+}
+
+.split-button {
+    font-variant: small-caps;
+    font-size: 14pt;
+}

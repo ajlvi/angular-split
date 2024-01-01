@@ -1,5 +1,13 @@
-<div>
-  {{split_names.category}} {{total_attempts}}
+<div>{{ split_names.category }} {{ total_attempts }}</div>
+<div class="box-holder">
+  <div class="split-container">
+    <app-split-row
+      *ngFor="let name of split_names['split_names']; let i = index"
+      [split_name]="name"
+      [split_pb]="i < pb_split.splits.length ? pb_split.splits[i] : 'x'"
+    />
+  </div>
+  <div class="form-cotainer">
+    <app-input-container />
+  </div>
 </div>
-
-<app-split-row *ngFor="let name of split_names['split_names']" [split_name]=name />

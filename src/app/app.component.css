@@ -1,0 +1,10 @@
+.box-holder {
+    display: flex;
+}
+
+.split-container, .form-container {
+    display: block;
+    min-width: 300px;
+    height: 400px;
+    overflow: scroll;
+}

@@ -1,0 +1,19 @@
+.splitRow {
+    max-width: 250px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.splitName, .timeDelta, .pbTime {
+    display: flex;
+    min-width: 50px;
+    padding: 1px 0px;
+}
+
+.splitName {
+    flex: 1
+}
+
+.pbTime {
+    justify-content: center;
+}
