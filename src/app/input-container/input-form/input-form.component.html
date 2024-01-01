@@ -1,6 +1,23 @@
-<form>
-    <input type="text" id="minutes" class="form-control" maxlength=2 #minuteInput>
-    <span class="colon">:</span>
-    <input type="text" id="seconds" class="form-control" maxlength=2 #secondInput>
-    <button class="split-button">split</button>
+<form #splitForm="ngForm" (ngSubmit)="onSubmit(splitForm)">
+  <input
+    type="text"
+    id="minutes"
+    name="minutes"
+    class="form-control"
+    maxlength="2"
+    #minuteInput
+    ngModel
+  />
+  <span class="colon">:</span>
+  <input
+    type="text"
+    id="seconds"
+    name="seconds"
+    class="form-control"
+    maxlength="2"
+    #secondInput
+    required
+    ngModel
+  />
+  <button class="split-button" type="submit">split</button>
 </form>
