@@ -4,7 +4,7 @@
     justify-content: space-between;
 }
 
-.splitName, .timeDelta, .pbTime {
+.splitName, .timeDelta, .pbTime, .cumulativeTime {
     display: flex;
     min-width: 50px;
     padding: 1px 0px;
@@ -14,8 +14,12 @@
     flex: 1
 }
 
-.pbTime {
+.pbTime, .cumulativeTime {
     justify-content: center;
+}
+
+.pbTime {
+    color: #bbb;
 }
 
 .gold {

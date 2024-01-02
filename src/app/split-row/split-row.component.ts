@@ -17,5 +17,8 @@ export class SplitRowComponent implements OnChanges {
     if (this.run_split !== 'x' && this.run_split) {
       this.time_delta = +this.run_split - +this.split_pb;
     }
+    else (
+      this.time_delta = 'x'
+    )
   }
 }

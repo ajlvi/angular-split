@@ -9,7 +9,8 @@
     }"
     >{{ time_delta === "x" ? "–" : (time_delta | time : true) }}</span
   >
-  <span class="pbTime">{{
-    (run_split === "x" ? split_pb : run_split) | time
-  }}</span>
+  <span
+    [ngClass]="{ pbTime: run_split === 'x', cumulativeTime: run_split !== 'x' }"
+    >{{ (run_split === "x" ? split_pb : run_split) | time }}</span
+  >
 </div>

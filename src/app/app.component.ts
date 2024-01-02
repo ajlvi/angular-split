@@ -35,7 +35,6 @@ export class AppComponent implements OnInit {
       this.current_run_data.date = this.todaysDate();
       this.total_attempts = this.data.getTotalRuns();
       this.total_splits = this.pb_split.splits.length;
-      console.log(this.pb_split);
     });
     this.data.goldDeltaSubj.subscribe((data) => (this.gold_deltas = data));
   }
@@ -50,6 +49,10 @@ export class AppComponent implements OnInit {
 
   handleNewSplit(ev: { split_index: number; split_value: number }) {
     this.current_run_data.splits[ev.split_index] = ev.split_value;
-    console.log(this.current_run_data);
+  }
+
+  handleSaveCommand() {
+    this.data.saveRun(this.current_run_data);
+    //this will fire a new pb split which should clear current_run_data.
   }
 }

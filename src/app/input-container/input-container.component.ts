@@ -25,6 +25,7 @@ export class InputContainerComponent {
     else {
       this.save.emit(true);
       this.confirmed_save = false;
+      this.active_split = 0;
     }
   }
 }

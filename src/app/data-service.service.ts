@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
@@ -88,4 +89,23 @@ export class DataService {
   getTotalRuns(): number {
     return this.all_splits.length
   }
+
+  saveRun(current_run: SplitData) {
+    //the idea comes from https://stackoverflow.com/a/75766913.
+    const current_splits = current_run.splits.slice();
+    const saved_run: SplitData = { date: current_run.date, splits: current_splits }
+    this.all_splits.push(saved_run)
+    let runs_dict = { "runs" : this.all_splits }
+    const output_text = JSON.stringify(runs_dict)
+
+    const blob = new Blob([output_text], {type: 'text/json'});
+
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = this.split_prefix + '.runs.json';
+    link.click();
+
+    this.processRuns()
+  }
+
 }
