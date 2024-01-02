@@ -1,1 +1,15 @@
-<app-input-form />
+<div class="split-selector">
+  <select [(ngModel)]="active_split">
+    <option
+      *ngFor="let name of split_names.split_names; let i = index"
+      [selected]="active_split === i"
+      [value]="i"
+    >
+      {{ i + 1 }}. {{ name }}
+    </option>
+  </select>
+</div>
+
+<app-input-form (input_split_time)="handleSplit($event)" />
+
+<button class="save-button" (click)="onSave()">{{confirmed_save? "Confirm" : "Save"}}</button>

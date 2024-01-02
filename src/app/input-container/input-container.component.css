@@ -1,0 +1,13 @@
+.split-selector {
+    margin: 10px 0px; 
+}
+
+.split-selector > option {
+    font-family: Ubuntu;
+}
+
+.save-button {
+    margin-top: 10px;
+    font-variant: small-caps;
+    font-size: 14pt;
+}

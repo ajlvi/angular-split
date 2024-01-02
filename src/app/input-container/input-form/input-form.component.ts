@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -7,9 +7,12 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./input-form.component.css'],
 })
 export class InputFormComponent {
+  @Output() input_split_time = new EventEmitter<number>();
+
   onSubmit(form: NgForm) {
-    const minutes = form.value.minutes;
-    const seconds = form.value.seconds;
-    console.log(minutes, seconds);
+    const minutes = +form.value.minutes;
+    const seconds = +form.value.seconds;
+    this.input_split_time.emit(60*minutes + seconds);
+    form.reset();
   }
 }

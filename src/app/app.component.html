@@ -4,10 +4,21 @@
     <app-split-row
       *ngFor="let name of split_names['split_names']; let i = index"
       [split_name]="name"
-      [split_pb]="i < pb_split.splits.length ? pb_split.splits[i] : 'x'"
+      [split_pb]="i < total_splits ? pb_split.splits[i] : 'x'"
+      [run_split]="i < total_splits ? current_run_data.splits[i] : 'x'"
+      [is_gold]="
+        i < total_splits &&
+        current_run_data.splits[i] !== 'x' &&
+        ((i == 0 && current_run_data.splits[0] < gold_deltas.splits[0]) ||
+          +current_run_data.splits[i] - +current_run_data.splits[i - 1] <
+            +gold_deltas.splits[i])
+      "
     />
   </div>
   <div class="form-cotainer">
-    <app-input-container />
+    <app-input-container
+      [split_names]="split_names"
+      (new_split)="handleNewSplit($event)"
+    />
   </div>
 </div>

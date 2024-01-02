@@ -17,3 +17,15 @@
 .pbTime {
     justify-content: center;
 }
+
+.gold {
+    color: #bb3;
+}
+
+.ahead {
+    color: #3a3;
+}
+
+.behind {
+    color: #e33;
+}

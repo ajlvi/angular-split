@@ -1,5 +1,15 @@
 <div class="splitRow">
-    <span class="splitName">{{split_name}}</span>
-    <span class="timeDelta">&ndash;</span>
-    <span class="pbTime">{{split_pb | time}}</span>
+  <span class="splitName">{{ split_name }}</span>
+  <span
+    class="timeDelta"
+    [ngClass]="{
+      gold: is_gold,
+      ahead: !is_gold && run_split < split_pb,
+      behind: !is_gold && run_split >= split_pb
+    }"
+    >{{ time_delta === "x" ? "–" : (time_delta | time : true) }}</span
+  >
+  <span class="pbTime">{{
+    (run_split === "x" ? split_pb : run_split) | time
+  }}</span>
 </div>
