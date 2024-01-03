@@ -8,3 +8,7 @@
     height: 400px;
     overflow: scroll;
 }
+
+.header { width: 275px; display: flex; justify-content: space-between; }
+
+.category-name, .category-attempts { display: flex }

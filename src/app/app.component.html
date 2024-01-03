@@ -1,4 +1,11 @@
-<div>{{ split_names.category }} {{ total_attempts }}</div>
+<div class="header">
+  <span class="category-name">
+    {{ split_names.category }}
+  </span>
+  <span class="category-attempts">
+    {{ total_attempts }}
+  </span>
+</div>
 <div class="box-holder">
   <div class="split-container">
     <app-split-row
