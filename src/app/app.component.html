@@ -7,20 +7,23 @@
   </span>
 </div>
 <div class="box-holder">
-  <div class="split-container">
-    <app-split-row
-      *ngFor="let name of split_names['split_names']; let i = index"
-      [split_name]="name"
-      [split_pb]="i < total_splits ? pb_split.splits[i] : 'x'"
-      [run_split]="i < total_splits ? current_run_data.splits[i] : 'x'"
-      [is_gold]="
-        i < total_splits &&
-        current_run_data.splits[i] !== 'x' &&
-        ((i == 0 && current_run_data.splits[0] < gold_deltas.splits[0]) ||
-          +current_run_data.splits[i] - +current_run_data.splits[i - 1] <
-            +gold_deltas.splits[i])
-      "
-    />
+  <div class="left-panel">
+    <div class="split-container">
+      <app-split-row
+        *ngFor="let name of split_names['split_names']; let i = index"
+        [split_name]="name"
+        [split_pb]="i < total_splits ? pb_split.splits[i] : 'x'"
+        [run_split]="i < total_splits ? current_run_data.splits[i] : 'x'"
+        [is_gold]="
+          i < total_splits &&
+          current_run_data.splits[i] !== 'x' &&
+          ((i == 0 && current_run_data.splits[0] < gold_deltas.splits[0]) ||
+            +current_run_data.splits[i] - +current_run_data.splits[i - 1] <
+              +gold_deltas.splits[i])
+        "
+      />
+    </div>
+    <app-stats-display />
   </div>
   <div class="form-cotainer">
     <app-input-container

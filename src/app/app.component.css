@@ -5,10 +5,15 @@
 .split-container, .form-container {
     display: block;
     min-width: 300px;
-    height: 400px;
     overflow: scroll;
+}
+
+.split-container { 
+    max-height: 296px;
 }
 
 .header { width: 275px; display: flex; justify-content: space-between; }
 
 .category-name, .category-attempts { display: flex }
+
+.stats-container { margin-top: 12px }

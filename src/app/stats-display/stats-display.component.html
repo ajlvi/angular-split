@@ -1,0 +1,30 @@
+<div class="stats-container">
+  <div class="stat-row">
+    <span class="stat-type">previous split</span>
+    <span class="stat-value prev-split">{{prevSplit | time}}</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-type">previous split (to pb)</span>
+    <span
+      class="stat-value"
+      [ngClass]="{ minusSplit: prevToPBMinus, plusSplit: !prevToPBMinus }"
+      >{{prevSplitToPB | time : true}}
+    </span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-type">previous split (to gold)</span>
+    <span
+      class="stat-value"
+      [ngClass]="{ goldSplit: prevToGoldMinus, plusSplit: !prevToGoldMinus }"
+      >+0:00</span
+    >
+  </div>
+  <div class="stat-row">
+    <span class="stat-type">best possible time</span>
+    <span class="stat-value">{{bestPossible | time}}</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-type">sum of best</span>
+    <span class="stat-value">{{sumOfBest | time}}</span>
+  </div>
+</div>

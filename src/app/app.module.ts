@@ -8,6 +8,7 @@ import { InputFormComponent } from './input-container/input-form/input-form.comp
 import { SplitRowComponent } from './split-row/split-row.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TimePipe } from './time.pipe';
+import { StatsDisplayComponent } from './stats-display/stats-display.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TimePipe } from './time.pipe';
     InputContainerComponent,
     InputFormComponent,
     SplitRowComponent,
-    TimePipe
+    TimePipe,
+    StatsDisplayComponent
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],

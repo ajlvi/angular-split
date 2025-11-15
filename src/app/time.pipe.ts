@@ -9,7 +9,7 @@ export class TimePipe implements PipeTransform {
       return '&ndash;';
     } else {
       let timeValue = value as number;
-      let sign = timeValue >= 0 ? '+' : '-';
+      let sign = timeValue >= 0 ? '+' : '–';
       timeValue = Math.abs(timeValue);
       const seconds = timeValue % 60;
       const minutes = (timeValue - seconds) / 60;

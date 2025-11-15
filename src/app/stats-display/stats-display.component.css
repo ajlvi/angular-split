@@ -1,0 +1,41 @@
+.stats-container {
+    margin-top: 12px;
+}
+
+.stat-row {
+    max-width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.stat-type, .stat-value {
+    display: flex;
+    padding: 1px 0px;
+    min-width: 50px;
+}
+
+.stat-type {
+    flex: 1;
+}
+
+.stat-value {
+    justify-content: center;
+}
+
+.prev-split {
+    text-indent: 10px
+}
+
+.minusSplit {
+    text-indent: 2px;
+    color: #3a3;
+}
+
+.plusSplit {
+    color: #e33;
+}
+
+.goldSplit {
+    color: #bb3;
+}

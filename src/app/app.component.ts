@@ -16,7 +16,7 @@ import { DummySplitRowData, SplitRowData } from './split-row-data.interface';
 export class AppComponent implements OnInit {
   title = 'Angular Livesplit';
   total_attempts: number = 0;
-  total_splits: number = 0
+  total_splits: number = 0;
   split_names: SplitNames = DummySplitNames;
   pb_split: SplitData = DummySplitData;
   gold_deltas: SplitData = DummySplitData;
@@ -36,7 +36,14 @@ export class AppComponent implements OnInit {
       this.total_attempts = this.data.getTotalRuns();
       this.total_splits = this.pb_split.splits.length;
     });
-    this.data.goldDeltaSubj.subscribe((data) => (this.gold_deltas = data));
+    this.data.goldDeltaSubj.subscribe((data) => {
+      this.gold_deltas = data;
+      console.log(
+        data.splits.reduce((partial:number, s) =>
+          partial + parseInt(s.toString()), 0
+        )
+      );
+    });
   }
 
   todaysDate(): string {

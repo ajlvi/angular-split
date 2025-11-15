@@ -7,7 +7,7 @@
       ahead: !is_gold && run_split < split_pb,
       behind: !is_gold && run_split >= split_pb
     }"
-    >{{ time_delta === "x" ? "–" : (time_delta | time : true) }}</span
+    >{{ time_delta === "x" ? "&mdash;" : (time_delta | time : true) }}</span
   >
   <span
     [ngClass]="{ pbTime: run_split === 'x', cumulativeTime: run_split !== 'x' }"
