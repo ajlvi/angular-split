@@ -1,7 +1,9 @@
 <div class="stats-container">
   <div class="stat-row">
     <span class="stat-type">previous split</span>
-    <span class="stat-value prev-split">{{prevSplit | time}}</span>
+    <span class="stat-value prev-split">
+      {{prevSplit === 0 ? "&mdash;" : (prevSplit | time)}}
+    </span>
   </div>
   <div class="stat-row">
     <span class="stat-type">previous split (to pb)</span>
@@ -16,7 +18,7 @@
     <span
       class="stat-value"
       [ngClass]="{ goldSplit: prevToGoldMinus, plusSplit: !prevToGoldMinus }"
-      >+0:00</span
+      >{{prevSplitToGold | time : true}}</span
     >
   </div>
   <div class="stat-row">

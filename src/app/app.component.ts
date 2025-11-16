@@ -19,6 +19,12 @@ export class AppComponent implements OnInit {
   total_splits: number = 0;
   split_names: SplitNames = DummySplitNames;
   pb_split: SplitData = DummySplitData;
+
+  previous_split: number = 0;
+  previous_to_pb: number | 'x' = 0;
+  previous_to_gold: number = 0;
+  best_possible: number = 0;
+  sum_of_best: number = 0;
   gold_deltas: SplitData = DummySplitData;
 
   current_run_data: SplitData = DummySplitData;
@@ -38,11 +44,11 @@ export class AppComponent implements OnInit {
     });
     this.data.goldDeltaSubj.subscribe((data) => {
       this.gold_deltas = data;
-      console.log(
-        data.splits.reduce((partial:number, s) =>
-          partial + parseInt(s.toString()), 0
-        )
+      this.sum_of_best = data.splits.reduce(
+        (partial: number, s) => partial + parseInt(s.toString()),
+        0
       );
+      this.best_possible = this.sum_of_best;
     });
   }
 
@@ -55,7 +61,24 @@ export class AppComponent implements OnInit {
   }
 
   handleNewSplit(ev: { split_index: number; split_value: number }) {
+    // add current split to this run's data
     this.current_run_data.splits[ev.split_index] = ev.split_value;
+    // calculate current split
+    if (ev.split_index == 0) {
+      this.previous_split = ev.split_value;
+    } else {
+      this.previous_split =
+        ev.split_value - +this.current_run_data.splits[ev.split_index - 1];
+    }
+    // update split to PB
+    this.previous_to_pb =
+      ev.split_value - +this.pb_split.splits[ev.split_index];
+    // update split to gold
+    this.previous_to_gold =
+      this.previous_split - +this.gold_deltas.splits[ev.split_index];
+    // update cumulative totals
+    this.best_possible += this.previous_to_gold;
+    if (this.previous_to_gold < 0) { this.sum_of_best += this.previous_to_gold; }
   }
 
   handleSaveCommand() {

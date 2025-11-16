@@ -23,7 +23,13 @@
         "
       />
     </div>
-    <app-stats-display />
+    <app-stats-display 
+      [prevSplit]="previous_split"
+      [prevSplitToPB]="previous_to_pb"
+      [prevSplitToGold]="previous_to_gold"
+      [bestPossible]="best_possible"
+      [sumOfBest]="sum_of_best"
+    />
   </div>
   <div class="form-cotainer">
     <app-input-container

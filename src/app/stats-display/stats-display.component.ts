@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-stats-display',
   templateUrl: './stats-display.component.html',
   styleUrls: ['./stats-display.component.css']
 })
-export class StatsDisplayComponent {
-  prevToPBMinus: boolean = false;
-  prevToGoldMinus: boolean = true;
-  prevSplit: number = 26;
-  prevSplitToPB: number = 5;
-  prevSplitToGold: number = 3;
+export class StatsDisplayComponent implements OnChanges {
+  @Input() prevSplit: number = 0
+  @Input() prevSplitToPB: (number | "x") = 0;
+  @Input() prevSplitToGold: (number | "x") = 0;
+  @Input() bestPossible: number = 0;
+  @Input() sumOfBest: number = 0;
 
-  bestPossible: number = 1230
-  sumOfBest: number = 1179
+  prevToPBMinus: boolean = false;
+  prevToGoldMinus: boolean = false;
+
+  ngOnChanges(): void {
+    this.prevToPBMinus = (this.prevSplitToPB !== "x" && this.prevSplitToPB < 0)
+    this.prevToGoldMinus = (this.prevSplitToGold !== "x" && this.prevSplitToGold < 0)
+  }
 }
