@@ -4,7 +4,7 @@
 
 .split-container, .form-container {
     display: block;
-    min-width: 300px;
+    min-width: 280px;
     overflow: scroll;
 }
 
@@ -12,8 +12,6 @@
     max-height: 296px;
 }
 
-.header { width: 275px; display: flex; justify-content: space-between; }
+.header { width: 275px; display: flex; justify-content: space-between; margin-bottom: 5px}
 
 .category-name, .category-attempts { display: flex }
-
-.stats-container { margin-top: 12px }

@@ -1,5 +1,5 @@
 .splitRow {
-    max-width: 250px;
+    max-width: 270px;
     display: flex;
     justify-content: space-between;
 }

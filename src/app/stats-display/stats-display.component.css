@@ -1,9 +1,9 @@
 .stats-container {
-    margin-top: 12px;
+    margin-top: 7px;
 }
 
 .stat-row {
-    max-width: 250px;
+    max-width: 270px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
